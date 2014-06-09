@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
   has_many :appointments
   has_and_belongs_to_many :salons
   has_many :stylistservices
+
+  def role?(role)
+    self.role.to_s == role.to_s
+  end
 end
