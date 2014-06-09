@@ -11,14 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140609105622) do
+ActiveRecord::Schema.define(:version => 20140609131615) do
 
   create_table "appointments", :force => true do |t|
     t.date     "date"
     t.time     "start_time"
     t.time     "end_time"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "user_id"
+    t.integer  "stylistservices_id"
   end
 
   create_table "images", :force => true do |t|
@@ -35,8 +37,9 @@ ActiveRecord::Schema.define(:version => 20140609105622) do
     t.string   "phone"
     t.text     "address"
     t.text     "description"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.string   "role",         :default => "salon"
   end
 
   create_table "services", :force => true do |t|
@@ -54,8 +57,9 @@ ActiveRecord::Schema.define(:version => 20140609105622) do
     t.string   "mobile"
     t.text     "description"
     t.string   "profile_image"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.string   "role",          :default => "stylist"
   end
 
   create_table "stylistservices", :force => true do |t|
@@ -70,11 +74,24 @@ ActiveRecord::Schema.define(:version => 20140609105622) do
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "email"
     t.string   "cellphone"
     t.string   "profile_image"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.string   "email",                  :default => "",     :null => false
+    t.string   "encrypted_password",     :default => "",     :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0,      :null => false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "role",                   :default => "user"
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end
