@@ -1,6 +1,16 @@
-<h1> Edit </h1>
+%h1 Edit
+%form.pure-form.pure-form-aligned
+  %fieldset
+    =form_for(@user) do |f|
+      .pure-control-group
+        = f.label :first_name
+        = f.text_field :first_name, placeholder: 'First name'
+      .pure-control-group
+        = f.label :last_name
+        = f.text_field :last_name, placeholder: 'Last name'
+      .pure-control-group
+        = f.label :cellphone
+        = f.text_field :cellphone, placeholder: '07777777777'
+      = f.submit class: 'pure-button pure-button-primary'
 
-
-
-
-<%= link_to "Back", user_path(current_user) %>
+= link_to "Back", user_path(current_user)
