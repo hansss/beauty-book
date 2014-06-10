@@ -12,16 +12,12 @@
     .header
       %p.title#main-title= link_to "Beauty Book", root_path
       .login
-        - if current_user
-          = link_to current_user.first_name, user_path(current_user)
-          = link_to "Log out", destroy_user_session_path, method: :delete
-        - else
-          = link_to "Sign In", new_user_session_path, :class => "popup", :"data-width" => 600, :"data-height" => 400
-          = link_to "Sign Up", new_user_registration_path, :class => "popup", :"data-width" => 600, :"data-height" => 400
+        = render "layouts/login"
     - if current_user
-      #client-sidebar
-        %ul.nav.navbar-nav
-          %li= link_to "Home", user_path(current_user)
-          %li=link_to "Search", salons_path
-          %li
+      = render "layouts/menu"
     = yield
+    #footer-full.wrapper
+      .nav-group.footer-contact
+        %h3.group-title Contact Us
+        %ul
+          %li Sign up as a Spa
