@@ -5,6 +5,10 @@ class Salon < ActiveRecord::Base
   has_many :images
   has_and_belongs_to_many :users
 
+  def sorted_phone_number
+    Phoner::Phone.parse(phone)
+  end
+
   def opening_time_string
     opening_time.strftime("%H:%M %p")
   end
