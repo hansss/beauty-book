@@ -3,4 +3,6 @@ class Appointment < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :stylist_service
+
+  # opening time, clashing with other appointments, stylist is free
 end

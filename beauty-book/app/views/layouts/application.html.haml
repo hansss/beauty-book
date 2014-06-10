@@ -2,26 +2,27 @@
 %html
   %head
     %title BeautyBook
-    %link{href: "http://yui.yahooapis.com/pure/0.5.0/pure-min.css", rel: "stylesheet"}/
-    = stylesheet_link_tag    "application", :media => "all"
+    %link{rel: "stylesheet", href: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"}/
+    = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
     %p.notice= notice
     %p.alert= alert
     .header
-      %p.title= link_to "Beauty Book", root_path
+      %p.title#main-title= link_to "Beauty Book", root_path
       .login
         - if current_user
-          = current_user.email
+          = link_to current_user.first_name, user_path(current_user)
           = link_to "Log out", destroy_user_session_path, method: :delete
         - else
           = link_to "Sign In", new_user_session_path, :class => "popup", :"data-width" => 600, :"data-height" => 400
           = link_to "Register", new_user_registration_path, :class => "popup", :"data-width" => 600, :"data-height" => 400
     - if current_user
-      .pure-menu.pure-menu-open.basic-menu
-        %ul
+      #client-sidebar
+        %ul.nav.navbar-nav
           %li= link_to "Home", user_path(current_user)
-          %li Search
+          %li
+            %a{href: "#"} Search
           %li
     = yield

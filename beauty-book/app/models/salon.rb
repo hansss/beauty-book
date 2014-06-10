@@ -5,4 +5,12 @@ class Salon < ActiveRecord::Base
   has_many :images
   has_and_belongs_to_many :users
 
+  def opening_time_string
+    opening_time.strftime("%H:%M %p")
+  end
+
+  def closing_time_string
+    closing_time.strftime("%H:%M %p")
+  end
+
 end
