@@ -1,0 +1,13 @@
+%h1 Salon Index
+
+.table-responsive
+  %table#salon-index.table-hover
+    %thead
+      %tr
+        %th.col-md-2 Salon
+        %th.col-md-2 Image
+        %th.col-md-2 Info
+        %th.col-md-2 View Profile
+    %tbody
+      = render @salons
+  

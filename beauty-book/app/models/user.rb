@@ -12,7 +12,14 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :salons
   has_many :stylistservices
 
+  
+  def sorted_phone_number
+    Phoner::Phone.parse(phone)
+  end
+
   def role?(role)
     self.role.to_s == role.to_s
   end
+
+
 end

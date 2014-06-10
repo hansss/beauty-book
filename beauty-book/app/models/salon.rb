@@ -4,17 +4,18 @@ class Salon < ActiveRecord::Base
   has_many :stylists
   has_many :images
   has_and_belongs_to_many :users
+  belongs_to :category
 
   def sorted_phone_number
     Phoner::Phone.parse(phone)
   end
 
   def opening_time_string
-    opening_time.strftime("%H:%M %p")
+    opening_time.strftime("%H:%M %p") if opening_time?
   end
 
   def closing_time_string
-    closing_time.strftime("%H:%M %p")
+    closing_time.strftime("%H:%M %p") if closing_time?
   end
 
 end
