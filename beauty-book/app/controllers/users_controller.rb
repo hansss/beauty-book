@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def salon_signup_info
+    @user = User.find(params[:id])
+  end
+
 
 
 
