@@ -2,10 +2,10 @@
   =form_for @salon, url: {action: "update"} do |f|
     %div
       = f.label :opening_time
-      = f.time_select :opening_time
+      = f.time_select :opening_time, {minute_step: 15}
     %div
       = f.label :closing_time
-      = f.time_select :closing_time
+      = f.time_select :closing_time, {minute_step: 15}
     %div
       = f.label :phone
       = f.text_field :phone
