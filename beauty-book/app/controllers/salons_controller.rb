@@ -8,6 +8,9 @@ class SalonsController < ApplicationController
     @salon = Salon.find(params[:id])
   end
 
+  def edit
+    @salon = Salon.find(params[:id])
+  end
   
 
 
