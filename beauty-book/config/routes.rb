@@ -1,15 +1,17 @@
 BeautyBook::Application.routes.draw do
 
   devise_for :users
-  resources :users
+  resources :users, :controllers => {registrations: "registrations"}
 
   resources :salons
   resources :stylistservices
 
   root to: 'home#index'
 
-
-
+  devise_scope :user do
+    get '/new_salons/sign_up(.:format)', to: 'registrations#new', as: 'new_salon_registration', defaults: { salon: true }
+    post '/new_salons(.:format)', to: 'registrations#create', as: 'salon_registration', defaults: { salon: true }
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
