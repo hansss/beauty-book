@@ -4,6 +4,7 @@
   - @managed_salon.categories.each do |category|
     = category.title
 = link_to "Add a stylist", new_salon_stylist_path(@managed_salon)
+= link_to "Add a service", new_salon_stylistservice_path(@managed_salon)
 .salon-edit-settings
   = link_to "Edit Your Salon Details", edit_salon_path(@managed_salon)
 
