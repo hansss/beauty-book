@@ -6,6 +6,9 @@ class Salon < ActiveRecord::Base
   has_many :category_salons
   has_many :categories, through: :category_salons
   accepts_nested_attributes_for :categories
+  has_many :salon_services
+  has_many :services, through: :salon_services
+  accepts_nested_attributes_for :services
   belongs_to :manager, class_name: 'User'
 
   def sorted_phone_number

@@ -4,11 +4,11 @@ BeautyBook::Application.routes.draw do
   resources :users, :controllers => {registrations: "registrations"}
 
   resources :salons
-  resources :stylistservices
+  resources :salon_services
 
   resources :salons do
     resources :stylists
-    resources :stylistservices
+    resources :salon_services
   end
 
   root to: 'home#index'
