@@ -10,6 +10,24 @@ class SalonsController < ApplicationController
 
   def edit
     @salon = Salon.find(params[:id])
+    @categories = Category.all
+    # Category.all.each do |category|
+    #   @salon.categories << category
+    # end
+  end
+
+  def update
+    @salon = Salon.find(params[:id])
+   
+    respond_to do |format|
+      if @salon.update_attributes(params[:salon])
+        format.html { redirect_to @salon, notice: 'Salon was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @salon.errors, status: :unprocessable_entity }
+      end
+    end
   end
   
 

@@ -1,10 +1,11 @@
 class Salon < ActiveRecord::Base
-  attr_accessible :address, :closing_time, :description, :name, :opening_time, :phone, :profile_image, :website_url, :postal_code, :city
+  attr_accessible :address, :closing_time, :description, :name, :opening_time, :phone, :profile_image, :website_url, :postal_code, :city, :category_ids
 
   has_many :stylists
   has_many :images
-  has_and_belongs_to_many :users
-  belongs_to :category
+  has_many :category_salons
+  has_many :categories, through: :category_salons
+  accepts_nested_attributes_for :categories
   belongs_to :manager, class_name: 'User'
 
   def sorted_phone_number

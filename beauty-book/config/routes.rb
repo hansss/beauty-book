@@ -6,6 +6,10 @@ BeautyBook::Application.routes.draw do
   resources :salons
   resources :stylistservices
 
+  resources :salons do
+    resources :stylists
+  end
+
   root to: 'home#index'
 
   devise_scope :user do

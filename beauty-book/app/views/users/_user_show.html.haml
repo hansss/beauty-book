@@ -1,0 +1,8 @@
+%h1 User Show Page
+.user-info
+  .name
+    =@user.full_name
+  .role
+    =@user.role
+  .btn
+    = link_to "Edit Settings", edit_user_registration_path

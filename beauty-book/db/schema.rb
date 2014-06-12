@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140611121809) do
+ActiveRecord::Schema.define(:version => 20140612132927) do
 
   create_table "appointments", :force => true do |t|
     t.date     "date"
@@ -27,6 +27,27 @@ ActiveRecord::Schema.define(:version => 20140611121809) do
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "category_salons", :force => true do |t|
+    t.integer  "category_id"
+    t.integer  "salon_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "favorited_salons", :force => true do |t|
+    t.integer  "salon_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "favorited_stylistservices", :force => true do |t|
+    t.integer  "stylistservice_id"
+    t.integer  "user_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "images", :force => true do |t|
@@ -68,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20140611121809) do
     t.string   "profile_image"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "salon_id"
   end
 
   create_table "stylistservices", :force => true do |t|

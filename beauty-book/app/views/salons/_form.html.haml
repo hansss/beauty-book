@@ -1,16 +1,20 @@
 .form
   =form_for @salon, url: {action: "update"} do |f|
     %div
+      - Category.all.each do |category|
+        = check_box_tag 'salon[category_ids][]', category.id, checked = @salon.categories.include?(category)
+        = category.title
+    %div
       = f.label :opening_time
-      = f.time_select :opening_time, {minute_step: 15}
+      = f.time_select :opening_time, {minute_step: 15, ampm: true}
     %div
       = f.label :closing_time
-      = f.time_select :closing_time, {minute_step: 15}
+      = f.time_select :closing_time, {minute_step: 15, ampm: true}
     %div
       = f.label :phone
       = f.text_field :phone
     %div
-      = f.label :website_url
+      = f.label "Website URL"
       = f.text_field :website_url
     %div
       = f.label :address
@@ -23,7 +27,8 @@
       = f.text_field :city  
     %div
       = f.label :description
-      = f.text_field :description
+      = f.text_area :description, :rows => "5"
+      %br
       = f.submit class: "btn btn-success"
 
 

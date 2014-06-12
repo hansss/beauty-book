@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @managed_salon = @user.managed_salon if @user.role == "salon"
   end
 
   def salon_signup_info

@@ -1,7 +1,5 @@
 
-%br
-%br
-%h1 User Home Page
-%h1=@user.full_name
-.btn
-  = link_to "Edit Settings", edit_user_registration_path
+-if @user.role == "salon"
+  = render "salon_show"
+- else
+  = render "user_show"
