@@ -8,7 +8,7 @@ BeautyBook::Application.routes.draw do
 
   resources :salons do
     resources :stylists
-    resources :salon_services
+    resources :services
   end
 
   root to: 'home#index'

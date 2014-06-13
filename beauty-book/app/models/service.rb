@@ -1,7 +1,11 @@
 class Service < ActiveRecord::Base
   attr_accessible :description, :duration, :title
 
-  has_many :salon_services
-  has_many :salons, through: :salon_services
-  accepts_nested_attributes_for :salon_services
+
+  belongs_to :salons
+  has_many :stylist_services
+  has_many :stylists, through: :stylist_services
+  
+
+
 end

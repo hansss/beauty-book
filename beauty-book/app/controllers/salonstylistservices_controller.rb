@@ -1,4 +1,4 @@
-class StylistservicesController < ApplicationController
+class SalonStylistServicesController < ApplicationController
   # before_filter :authenticate_user!
   before_filter :load_salon
 
