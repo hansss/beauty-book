@@ -4,7 +4,6 @@ BeautyBook::Application.routes.draw do
   resources :users, :controllers => {registrations: "registrations"}
 
   resources :salons
-  resources :salon_services
 
   resources :salons do
     resources :stylists

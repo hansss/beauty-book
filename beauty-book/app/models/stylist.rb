@@ -4,4 +4,11 @@ class Stylist < ActiveRecord::Base
   belongs_to :salon
   has_many :stylist_services
   has_many :services, through: :stylist_services
+
+def full_name
+  first_name + " " + last_name
 end
+
+end
+
+

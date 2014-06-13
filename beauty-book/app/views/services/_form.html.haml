@@ -1,0 +1,32 @@
+%h1 New Service
+.form
+  = form_for([@salon, @service]) do |f|
+    - if @service.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@service.errors.count, "error")
+          prohibited this service from being saved:
+        %ul
+          - @service.errors.full_messages.each do |msg|
+            %li= msg
+    .field
+      = f.label :title
+      = f.text_field :title
+    .field
+      = f.label :duration
+      = f.text_field :duration
+    .field
+      = f.label :description
+      = f.text_field :description
+    .field
+      = f.fields_for :stylist_services do |s|
+        .field
+          = s.collection_select :stylist_id, @salons_stylists, :id, :full_name
+        .field
+          = s.hidden_field :service_id
+        .field
+          = s.label :cost
+          = s.text_field :cost
+    = f.submit
+        
+

@@ -4,7 +4,7 @@
   - @managed_salon.categories.each do |category|
     = category.title
 = link_to "Add a stylist", new_salon_stylist_path(@managed_salon)
-= link_to "Add a service", new_salon_service_path
+= link_to "Add a service", new_salon_service_path(@managed_salon)
 .salon-edit-settings
   = link_to "Edit Your Salon Details", edit_salon_path(@managed_salon)
 
@@ -12,3 +12,22 @@
   = @user.full_name
   %br
   = @user.role
+
+.salons-stylist-index
+  %h3 Stylists
+  - @managed_salon.stylists.each do |stylist|
+    = stylist.full_name
+    %br
+
+.salons-service-index
+  %h3 Services
+  -@managed_salon.services.each do |service|
+    = service.title
+    %br
+
+.salons-stylist-service-index
+  %h3 Stylist Services
+  -@managed_salon.stylist_services.each do |stylist_service|
+    = stylist_service.stylist.full_name
+    %br
+

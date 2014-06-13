@@ -10,7 +10,7 @@ class StylistsController < ApplicationController
     @stylist = @salon.stylists.build(params[:stylist])
     respond_to do |format|
       if @stylist.save
-        format.html { redirect_to @salon, notice: 'Stylist was successfully added.' }
+        format.html { redirect_to @user, notice: 'Stylist was successfully added.' }
         format.json { render json: @user, status: :created, location: @stylist }
       else
         format.html { render action: "new" }

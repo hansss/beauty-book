@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140613082841) do
+ActiveRecord::Schema.define(:version => 20140613085057) do
 
   create_table "appointments", :force => true do |t|
     t.date     "date"
@@ -56,13 +56,6 @@ ActiveRecord::Schema.define(:version => 20140613082841) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "salon_services", :force => true do |t|
-    t.integer  "salon_id"
-    t.integer  "service_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "salons", :force => true do |t|
     t.string   "name"
     t.time     "opening_time"
@@ -85,13 +78,7 @@ ActiveRecord::Schema.define(:version => 20140613082841) do
     t.float    "duration"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-  end
-
-  create_table "stylist_salon_services", :force => true do |t|
-    t.integer  "stylist_id"
-    t.integer  "salon_service_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.integer  "salon_id"
   end
 
   create_table "stylist_services", :force => true do |t|

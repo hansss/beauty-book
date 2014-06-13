@@ -7,6 +7,7 @@ class Salon < ActiveRecord::Base
   has_many :categories, through: :category_salons
   accepts_nested_attributes_for :categories
   has_many :services
+  has_many :stylist_services, through: :services
   accepts_nested_attributes_for :services
   belongs_to :manager, class_name: 'User'
 
