@@ -1,8 +1,9 @@
 class Salon < ActiveRecord::Base
-  attr_accessible :address, :closing_time, :description, :name, :opening_time, :phone, :profile_image, :website_url, :postal_code, :city, :category_ids
+  attr_accessible :address, :closing_time, :description, :name, :opening_time, :phone, :profile_image, :website_url, :postal_code, :city, :category_ids, :images, :images_attributes
 
   has_many :stylists
   has_many :images
+  accepts_nested_attributes_for :images
   has_many :category_salons
   has_many :categories, through: :category_salons
   accepts_nested_attributes_for :categories

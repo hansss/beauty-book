@@ -6,14 +6,13 @@ class SalonsController < ApplicationController
 
   def show
     @salon = Salon.find(params[:id])
+    @services = @salon.services
   end
 
   def edit
     @salon = Salon.find(params[:id])
     @categories = Category.all
-    # Category.all.each do |category|
-    #   @salon.categories << category
-    # end
+    @salon.images.build
   end
 
   def update

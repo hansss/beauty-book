@@ -19,6 +19,21 @@ html{
   width: 40%;
 }
 
+html, body, #ebtf { height: 100%; }
+body > #ebtf { height: auto; min-height: 100%; }
+
+#ebtf{
+  margin-bottom: 80px;
+}
+
+#global-footer{
+  clear: both;
+  position: relative;
+  height: 1em;
+  margin-top: -3em;
+  border-top: solid 2px black;
+}
+
 .edit-form{
   margin: 0 auto;
 }
@@ -38,26 +53,25 @@ html{
   color: black;
 }
 
-
-
-/*#client-sidebar{
-  margin-left: -250px;
-  left: 250px;
-  width: 250px;
-  background: white;
-  position: fixed;
-  height: 100%;
-  overflow-y: auto;
-  z-index: 1000;
-  transition: all 0.4s ease 0s;
-}*/
-
 .salon_index_image{
   max-width: 40%;
 }
 
 thead{
   margin-bottom: 20px;
+}
+
+#client-sidebar{
+
+}
+
+.nav-stacked > li + li {
+  margin-top: 2px;
+  margin-left: 0;
+}
+
+#salon-show{
+  margin-right: 50px;
 }
 
 

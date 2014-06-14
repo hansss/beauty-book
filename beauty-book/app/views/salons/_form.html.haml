@@ -5,6 +5,10 @@
         = check_box_tag 'salon[category_ids][]', category.id, checked = @salon.categories.include?(category)
         = category.title
     %div
+      =f.fields_for :images do |image|
+        = image.label :image_file
+        = image.file_field :image_file
+    %div
       = f.label :opening_time
       = f.time_select :opening_time, {minute_step: 15, ampm: true}
     %div
