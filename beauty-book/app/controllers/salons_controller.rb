@@ -7,6 +7,7 @@ class SalonsController < ApplicationController
   def show
     @salon = Salon.find(params[:id])
     @services = @salon.services
+    @image = @salon.images.first.image_file
   end
 
   def edit
