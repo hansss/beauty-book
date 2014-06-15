@@ -2,11 +2,10 @@
 %html
   %head
     %title BeautyBook
-    %link{rel: "stylesheet", href: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"}
+    %link{rel: "stylesheet", href: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"}/
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
-    = csrf_meta_tags  
-  %script $(function() {alert('hello')});
+    = csrf_meta_tags
   #ebtf
     %body
       %p.notice= notice

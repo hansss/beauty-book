@@ -10,7 +10,6 @@
  *
  *= require_self
  *= require_tree 
- *= require fullcalendar_engine/application
 */
 html{
   text-align: center;
@@ -55,7 +54,9 @@ body > #ebtf { height: auto; min-height: 100%; }
 }
 
 #user-main-content{
-  margin: 0 auto;
+    margin: 0px 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     background: #f8f8f8 url(../img/pattern.jpg) left top repeat;
     -moz-box-shadow:
         0 5px 15px 0 rgba(0,0,0,.05) inset,
@@ -89,4 +90,17 @@ thead{
   margin-right: 50px;
 }
 
+#container{
+  margin: 0 auto;
+    background: #f8f8f8 url(../img/pattern.jpg) left top repeat;
+    -moz-box-shadow:
+        0 5px 15px 0 rgba(0,0,0,.05) inset,
+        0 -5px 15px 0 rgba(0,0,0,.05) inset;
+    -webkit-box-shadow:
+        0 5px 15px 0 rgba(0,0,0,.05) inset,
+        0 -5px 15px 0 rgba(0,0,0,.05) inset;
+    box-shadow:
+        0 5px 15px 0 rgba(0,0,0,.05) inset,
+        0 -5px 15px 0 rgba(0,0,0,.05) inset;
+}
 
