@@ -11,6 +11,7 @@ BeautyBook::Application.routes.draw do
   end
 
   root to: 'home#index'
+  mount FullcalendarEngine::Engine => "/calendar"
 
   devise_scope :user do
     get '/new_salons/sign_up(.:format)', to: 'registrations#new', as: 'new_salon_registration', defaults: { salon: true }

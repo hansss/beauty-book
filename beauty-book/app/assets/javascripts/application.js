@@ -12,13 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require_tree  .
 
 var BeautyApp = BeautyApp || {};
 
 BeautyApp.setup = function() {
   $(document).ready(function(){
-  $('#calendar').fullCalendar({
+  $('.calendar').fullCalendar({
+
 
   })
 });
@@ -46,3 +47,4 @@ $(BeautyApp.setup);
 
 
 
+//= require fullcalendar_engine/application
