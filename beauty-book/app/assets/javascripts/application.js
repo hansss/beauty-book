@@ -12,22 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require moment.min.js
 //= require_tree .
 
-var BeautyApp = BeautyApp || {};
 
-BeautyApp.setup = function() {
-  $(document).ready(function(){
+$(document).ready(function() {
+
   $('#calendar').fullCalendar({
 
-  })
+
+  });
 });
 
-};
-
-
-
-$(BeautyApp.setup);
 
 
 

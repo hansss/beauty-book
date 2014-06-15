@@ -1,13 +1,15 @@
-%h1 User Show Page
+%h2 Scheduler
+.btn
+  = link_to "Edit Settings", edit_user_registration_path
+
+#user-main-content
+  .row
+    .col-md-4
+    .col-md-8
+      #calendar
+
 .user-info
   .name
     =@user.full_name
   .role
     =@user.role
-  .btn
-    = link_to "Edit Settings", edit_user_registration_path
-
-.container#user-main-content
-  .row
-    .span10.offset1
-      #calendar
