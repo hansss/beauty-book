@@ -1,10 +1,20 @@
-%h2 Scheduler
 .btn
   = link_to "Edit Settings", edit_user_registration_path
 
 #user-main-content
   .row
+    .col-md-2
+      %h3 Appointments
     .col-md-4
+  .row
+    %table.table-bordered.table-hover.col-md-4
+      #weeks-appointments
+        %thead
+          %tr
+            %th.col-md-4 Date
+            %th.col-md-8 Service
+        %tbody
+          = render "users/weeks_appointments"
     .col-md-8
       #calendar
 

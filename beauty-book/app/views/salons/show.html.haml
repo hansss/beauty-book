@@ -1,12 +1,12 @@
-%h1=@salon.name
 #salon-show
   .row
-    .col-lg-8
+    .col-sm-6
       %img.img-responsive.img-rounded{src: set_default_image(@salon) }/
       / take out img-rounded if you don't want the rounded corners on the image
-    .col-lg-4
-      %h1 Business Name or Tagline
-      %p This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!
+    .col-sm-6
+      %h1=@salon.name
+      #salon-info
+        =@salon.hours
       %a.btn.btn-primary.btn-lg{href: "#"} Call to Action!
   %hr/
   .row
