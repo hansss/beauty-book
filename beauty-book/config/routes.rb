@@ -9,9 +9,10 @@ BeautyBook::Application.routes.draw do
     resources :stylists
     resources :services
   end
-
+  delete '/salons/:salon_id/services/:id' => 'services#destroy', :as => 'delete_service'
+  
   root to: 'home#index'
-
+  
 
   devise_scope :user do
     get '/new_salons/sign_up(.:format)', to: 'registrations#new', as: 'new_salon_registration', defaults: { salon: true }

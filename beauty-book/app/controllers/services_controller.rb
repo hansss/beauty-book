@@ -12,6 +12,16 @@ class ServicesController < ApplicationController
     redirect_to current_user
   end
 
+  def show
+    @service = @salon.services.find(params[:id])
+  end
+
+  def destroy
+    @service = @salon.services.find(params[:id])
+    @service.destroy
+    redirect_to current_user
+  end
+
   private
   def load_salon
     @salon = Salon.find(params[:salon_id])

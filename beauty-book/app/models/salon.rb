@@ -24,4 +24,5 @@ class Salon < ActiveRecord::Base
     closing_time.strftime("%H:%M %p") if closing_time?
   end
 
+  
 end

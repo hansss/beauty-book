@@ -11,4 +11,12 @@ class ApplicationController < ActionController::Base
     user_path(resource)
   end
 
+  private
+  helper_method :set_default_image
+  def set_default_image(salon)
+    image = salon.images.first.image_file unless salon.images.empty?
+    image ? image : "/assets/spa_default.jpg"
+  end
+
+
 end

@@ -7,7 +7,7 @@ class SalonsController < ApplicationController
   def show
     @salon = Salon.find(params[:id])
     @services = @salon.services
-    @image = @salon.images.first.image_file
+    @image = @salon.images.first.image_file unless @salon.images.empty?
   end
 
   def edit
@@ -29,6 +29,8 @@ class SalonsController < ApplicationController
       end
     end
   end
+
+ 
   
 
 

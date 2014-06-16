@@ -25,6 +25,7 @@
   #services-list
     -@managed_salon.services.each do |service|
       = service.title
+      = link_to "Remove", delete_service_path(service)
       %br
 
 .salons-stylist-service-index

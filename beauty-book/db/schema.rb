@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140615085315) do
+ActiveRecord::Schema.define(:version => 20140616092947) do
 
   create_table "appointments", :force => true do |t|
     t.date     "date"
@@ -41,13 +41,6 @@ ActiveRecord::Schema.define(:version => 20140615085315) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "favorited_stylistservices", :force => true do |t|
-    t.integer  "stylistservice_id"
-    t.integer  "user_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
   end
 
   create_table "fullcalendar_engine_event_series", :force => true do |t|
