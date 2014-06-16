@@ -1,5 +1,7 @@
-class SalonServicesController < ApplicationController
+class StylistServicesController < ApplicationController
   # before_filter :load_salon
+
+
 
   def new
     @salonservice = @salon.salonservices.build

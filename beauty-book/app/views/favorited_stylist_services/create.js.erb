@@ -1,0 +1,3 @@
+if (<%= @favorited_stylist_service.persisted? %>) {
+  $('.alert').first().html('Favorited!').delay(3000).fadeOut("slow", function() { $('.alert').first().html("").css('display', 'block'); });
+}

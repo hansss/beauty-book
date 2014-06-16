@@ -1,7 +1,9 @@
 %ul.list-group
-  - @services.each do |service|
+  - @services.each do |stylist_service|
     %li.list-group-item
-      =service.title
+      =stylist_service.service.title
+      .favorite-button       
+        = link_to "Favorite", salon_favorited_stylist_services_path(@salon, stylist_service: stylist_service), method: :post, remote: true, class: 'btn'
       %span.badge
         / =service.stylistservices.first
 

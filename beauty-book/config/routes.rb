@@ -8,8 +8,9 @@ BeautyBook::Application.routes.draw do
   resources :salons do
     resources :stylists
     resources :services
+    resources :favorited_stylist_services
   end
-  delete '/salons/:salon_id/services/:id' => 'services#destroy', :as => 'delete_service'
+
   
   root to: 'home#index'
   

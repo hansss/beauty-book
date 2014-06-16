@@ -7,10 +7,9 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :cellphone, :email, :first_name, :last_name
 
-
+  has_many :favorited_stylist_services
+  has_many :stylist_services, through: :favorited_stylist_services
   has_many :appointments
-  # has_and_belongs_to_many :salons
-  # has_many :stylistservices
   has_one :managed_salon, class_name: 'Salon', foreign_key: :manager_id
 
   after_save :setup_salon
