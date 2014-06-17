@@ -11,6 +11,7 @@ BeautyBook::Application.routes.draw do
     resources :favorited_stylist_services
   end
 
+  resources :appointments
   
   root to: 'home#index'
   

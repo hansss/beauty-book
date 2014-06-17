@@ -1,0 +1,7 @@
+%ul.list-group
+  - @favorited_stylist_services.each do |favorite|
+    %li.list-group-item
+      = favorite.stylist_service.service.title
+      = link_to "Book", new_appointment_path(appointment_service_id: favorite.stylist_service)
+      .favorite-button       
+        

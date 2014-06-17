@@ -22,9 +22,14 @@ $(document).ready(function() {
 
 
   $('#calendar').fullCalendar({
-
-
   });
+
+  $('#sandbox-container').datepicker({
+    todayHighlight: true,
+    startDate: 0,
+    format: "yyyy-mm-dd"
+    
+});
 });
 
 

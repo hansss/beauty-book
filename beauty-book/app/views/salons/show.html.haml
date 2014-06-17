@@ -6,23 +6,14 @@
     .col-sm-6
       %h1=@salon.name
       #salon-info
-        =@salon.hours
+        %div Hours: #{@salon.hours}
+        %div Phone: #{@salon.phone}
+        %div Address: #{@salon.full_address}
+        %div Web: #{link_to @salon.website_url, @salon.website_url, :target => "_blank"}
       %a.btn.btn-primary.btn-lg{href: "#"} Call to Action!
   %hr/
   .row
     .col-lg-12
-      .well.text-center
-        This is a well that is a great spot for a business tagline or phone number for easy access!
-  .row
-    .col-lg-4
       %h2 Services
       = render 'services'
-      %a.btn.btn-default{href: "#"} More Info
-    .col-lg-4
-      %h2 Heading 2
-      %p Phasellus vestibulum sagittis purus laoreet varius. Pellentesque malesuada malesuada mattis. Aliquam sed porta nisi, eget suscipit dolor. Nam ipsum sapien, rhoncus eu leo eu, ultricies pellentesque tellus.
-      %a.btn.btn-default{href: "#"} More Info
-    .col-lg-4
-      %h2 Heading 3
-      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sollicitudin auctor quam ac tempor. Cras a ante sed libero mollis sodales. Praesent fringilla, neque ut ultrices faucibus, dolor eros ultrices neque, nec bibendum arcu ipsum eget justo.
-      %a.btn.btn-default{href: "#"} More Info
+      / %a.btn.btn-default{href: "#"} More Info

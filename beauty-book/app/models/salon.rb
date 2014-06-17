@@ -30,5 +30,11 @@ class Salon < ActiveRecord::Base
    end
   end
 
+  def full_address
+    if address && postal_code && city
+    address + "\n" + postal_code + ", " + city
+  end
+  end
+
   
 end

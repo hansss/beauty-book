@@ -1,0 +1,19 @@
+.form
+  = form_for(@appointment) do |f|
+    - if @appointment.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(@appointment.errors.count, "error")
+          prohibited this appointment from being saved:
+        %ul
+          - @appointment.errors.full_messages.each do |msg|
+            %li= msg
+    .field
+      = f.label :date
+      = f.text_field :date, 'data-behaviour' => 'datepicker', id: "sandbox-container"
+    .field
+      = f.label :start_time
+      = f.time_select :start_time, {minute_step: 15, ampm: true}
+    .field
+      = f.hidden_field :appointment_service_id
+    = f.submit

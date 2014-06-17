@@ -9,7 +9,8 @@ class User < ActiveRecord::Base
 
   has_many :favorited_stylist_services
   has_many :stylist_services, through: :favorited_stylist_services
-  has_many :appointments
+  has_many :appointments, foreign_key: :client_id
+  has_many :appointment_services, through: :appointments
   has_one :managed_salon, class_name: 'Salon', foreign_key: :manager_id
 
   after_save :setup_salon

@@ -8,8 +8,6 @@
         %ul
           - @service.errors.full_messages.each do |msg|
             %li= msg
-
-      f.select :country, [['Philippines', 1], ['Hong Kong', 2], ['Indonesia', 3]]
     .field
       = f.label :title
       = f.text_field :title

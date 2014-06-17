@@ -14,9 +14,14 @@
             %th.col-md-4 Date
             %th.col-md-8 Service
         %tbody
-          = render "users/weeks_appointments"
+          = render "appointments"
     .col-md-8
       #calendar
+  .row
+    .col-lg-12
+      %h2 Favorite Services
+      = render 'favorite_services'
+      %a.btn.btn-default{href: "#"} More Info
 
 .user-info
   .name
