@@ -18,15 +18,9 @@
       = f.label :description
       = f.text_field :description
     .field
-      = f.fields_for :stylist_services do |s|
-        .field
-          = s.label "Stylist"
-          = s.collection_select :stylist_id, @salons_stylists, :id, :full_name
-        .field
-          = s.hidden_field :service_id
-        .field
-          = s.label :cost
-          = s.text_field :cost
+      = f.fields_for :stylist_services do |builder|
+        = render 'stylist_service_fields', :f => builder
+        != link_to_add_fields("Add Stylist", f, :stylist_services)
     = f.submit
         
 

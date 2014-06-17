@@ -5,7 +5,7 @@ class Service < ActiveRecord::Base
   belongs_to :salons
   has_many :stylist_services
   has_many :stylists, through: :stylist_services
-  accepts_nested_attributes_for :stylist_services
+  accepts_nested_attributes_for :stylist_services, :allow_destroy => true
   
 
 

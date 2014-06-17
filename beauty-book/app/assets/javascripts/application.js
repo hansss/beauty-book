@@ -19,35 +19,23 @@
 
 
 $(document).ready(function() {
-
-
   $('#calendar').fullCalendar({
   });
 
   $('#sandbox-container').datepicker({
     todayHighlight: true,
     startDate: 0,
-    format: "yyyy-mm-dd"
-    
+    format: "yyyy-mm-dd"   
+  });
 });
-});
 
+function remove_fields(link){
+  $(link).prev("input[type=hidden]").value = "1";
+  $(link).parents(".fields").hide();
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//= require fullcalendar_engine/application
+function add_fields(link, association, content) {  
+  var new_id = new Date().getTime();  
+  var regexp = new RegExp("new_" + association, "g");  
+  $(link).parent().before(content.replace(regexp, new_id));
+}
