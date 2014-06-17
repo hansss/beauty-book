@@ -27,6 +27,10 @@ class User < ActiveRecord::Base
     first_name + " " + last_name
   end
 
+  def appointment_description(appointment)
+    appointment.appointment_service.service.title
+  end
+
 
   private
   def setup_salon

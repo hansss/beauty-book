@@ -9,8 +9,9 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @appointment = Appointment.create({date: params[:appointment][:date], client_id: current_user.id, appointment_service_id: params[:appointment][:appointment_service_id]})
-    
+    @appointment = Appointment.new(params[:appointment])
+    @appointment.client_id = current_user.id
+    @appointment.save
     redirect_to current_user
   end
 

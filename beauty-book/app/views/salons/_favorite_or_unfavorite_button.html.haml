@@ -1,0 +1,4 @@
+-if current_user.favorited_stylist_services.find {|i|i["stylist_service_id"]==stylist_service.id}
+  = link_to "Unfavorite", salon_unfavorited_stylist_service_path(@salon, stylist_service), method: :delete, remote: true, class: 'btn'
+-else
+  = link_to "Favorite", salon_favorited_stylist_service_path(@salon, stylist_service), method: :post, remote: true, class: 'btn'

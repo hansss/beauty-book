@@ -35,7 +35,17 @@
     %br
 
 .appointments
-  %h4 Appointment requests
+  %h3 Appointment requests
+  - @managed_salon.stylist_services.each do |stylist_service|
+    %h4= stylist_service.service.title.pluralize + " with " + stylist_service.stylist.full_name
+    %ul
+      -stylist_service.appointments.each do |appointment_request|
+        %li.row
+          .col-xs-4=appointment_request.readable_date 
+          .col-xs-4=appointment_request.client.full_name 
+          .col-xs-4=appointment_request.date 
+
+
 
 .deals
   %h4 Add a deal

@@ -8,7 +8,9 @@ BeautyBook::Application.routes.draw do
   resources :salons do
     resources :stylists
     resources :services
-    resources :favorited_stylist_services
+    resources :favorited_stylist_services, only: [:index]
+    post 'stylist_services/:stylist_service_id/favourite', to: 'favorited_stylist_services#create', as: :favorited_stylist_service
+    delete 'stylist_services/:stylist_service_id/unfavourite', to: 'favorited_stylist_services#destroy', as: :unfavorited_stylist_service
   end
 
   resources :appointments

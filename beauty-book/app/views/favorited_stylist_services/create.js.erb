@@ -1,3 +1,4 @@
-if (<%= @favorited_stylist_service.persisted? %>) {
-  $('.alert').first().html('Favorited!').delay(3000).fadeOut("slow", function() { $('.alert').first().html("").css('display', 'block'); });
-}
+
+var buttonContent = "<%= escape_javascript(render partial: 'salons/favorite_or_unfavorite_button', locals: { stylist_service: @favorited_stylist_service.stylist_service }) %>";
+
+$('#favorite_or_unfavorite_button_<%=@favorited_stylist_service.stylist_service_id%>').html(buttonContent);

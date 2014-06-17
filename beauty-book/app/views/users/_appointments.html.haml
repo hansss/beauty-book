@@ -1,6 +1,10 @@
 - @appointments.each do |appointment|
   %tr
     %td.col-md-4
+      = appointment.day_of_the_week
       = appointment.readable_date
-    %td.col-md-8 Service description
+    %td.col-md-8
+      = appointment.appointment_service.service.title
+      = appointment.start_time
+
 

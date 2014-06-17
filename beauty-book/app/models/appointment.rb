@@ -10,4 +10,9 @@ class Appointment < ActiveRecord::Base
   def readable_date
     date.strftime("%B %d, %Y")
   end
+
+  def day_of_the_week
+    date.strftime("%a")
+  end
+
 end
