@@ -7,7 +7,8 @@
         = appointment.readable_date
       %td.col-md-8
         = appointment.readable_time
-        = appointment.appointment_service.service.title
+        = appointment.appointment_service.service.title + " with "
+        = appointment.appointment_service.stylist.full_name
         
         
 
