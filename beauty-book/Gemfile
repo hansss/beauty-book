@@ -13,6 +13,7 @@ gem 'phone'
 gem 'carrierwave', '= 0.9.0'
 gem 'bootstrap-datepicker-rails'
 gem 'whenever', :require => false
+gem 'ransack'
 
 
 group :development, :test do

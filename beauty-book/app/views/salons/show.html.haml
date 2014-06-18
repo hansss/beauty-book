@@ -10,6 +10,7 @@
         %div Phone: #{@salon.phone}
         %div Address: #{@salon.full_address}
         %div Web: #{link_to @salon.website_url, @salon.website_url, :target => "_blank"}
+        %div Category: #{@categories.join(", ")}
       %a.btn.btn-primary.btn-lg{href: "#"} Call to Action!
   %hr/
   .row

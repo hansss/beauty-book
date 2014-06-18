@@ -8,3 +8,4 @@
 
 categories = Category.create([{title:'Hair'},{title: 'Nails'},{title: 'Body'},{title:'Face'},{title:'Brows'},{title:'Wax'},{title:'Makeup'},{title:'Special'}])
 
+Salon.create(name: "Andrew Barton", address: "25 Henrietta Street", postal_code: "WC2E 8NA", city: "London", :opening_time: "")

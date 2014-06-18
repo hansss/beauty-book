@@ -16,6 +16,20 @@ class ServicesController < ApplicationController
     @service = @salon.services.find(params[:id])
   end
 
+  def edit
+    @service = Service.find(params[:id])
+    @salons_stylists = @salon.stylists.all
+  end
+
+  def update
+    @service = Service.find(params[:id])
+    if @service.update_attributes(params[:service])
+      redirect_to current_user, notice: "Updated."
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     @service = @salon.services.find(params[:id])
     @service.destroy

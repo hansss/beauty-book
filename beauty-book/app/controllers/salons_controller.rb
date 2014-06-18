@@ -2,11 +2,17 @@ class SalonsController < ApplicationController
   # before_filter :authenticate_user!
   def index
     @salons = Salon.all
+    @q = Salon.search(params[:q])
+    @salons = @q.result(:distinct => true).includes(:categories)
   end
 
   def show
     @salon = Salon.find(params[:id])
     @services = @salon.stylist_services
+    @categories = []
+    @salon.categories.each do |category|
+      @categories << category.title
+    end
     @image = @salon.images.first.image_file unless @salon.images.empty?
   end
 

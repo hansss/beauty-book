@@ -3,6 +3,7 @@
   %head
     %title BeautyBook
     %link{rel: "stylesheet", href: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"}/
+    %link{rel: 'stylesheet', href: 'http://fonts.googleapis.com/css?family=Playfair+Display+SC:400,400italic,700', type: 'text/css' }
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
@@ -10,18 +11,21 @@
     %body
       %p.notice= notice
       %p.alert= alert
-      .header
-        %p.title#main-title= link_to "Beauty Book", header_path
-        .login
-          = render "layouts/login"
-      .row
-        .col-md-2
-          = user_menu
-        .col-md-10
-          = yield
-  #global-footer.wrapper
+      .container
+        .header.row
+          .span12
+            .brand#main-title= link_to "Beauty Book", header_path
+            .login
+              = render "layouts/login"
+      .container
+        .row
+          .col-md-2
+            = user_menu
+          .col-md-10
+            = yield
+  .global-footer.wrapper
     .nav-group.footer-contact
       .group-title
-        %ul
+        %ul#spa-sign-up-list
           %li 
           = link_to 'Sign up as a Spa', new_salon_registration_path

@@ -7,6 +7,7 @@ class Service < ActiveRecord::Base
   has_many :stylists, through: :stylist_services
   accepts_nested_attributes_for :stylist_services, :allow_destroy => true
   
-
+  validates :title, presence: true
+  validates :duration, presence: true
 
 end

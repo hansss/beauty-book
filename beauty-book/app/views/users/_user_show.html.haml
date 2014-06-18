@@ -1,13 +1,7 @@
-.btn
-  = link_to "Edit Settings", edit_user_registration_path
-
 #user-main-content
   .row
-    .col-md-2
-      %h3 Appointments
-    .col-md-4
-  .row
-    %table.table-bordered.table-hover.col-md-4
+    %table.table-bordered.table-hover.col-md-12
+      %h2 Appointments
       #weeks-appointments
         %thead
           %tr
@@ -15,17 +9,11 @@
             %th.col-md-8 Service
         %tbody
           = render "appointments"
-    .col-md-8
-      #calendar
+    / .col-md-8
+    /   #calendar
   .row
     .col-lg-12
       %h2 Favorite Services
       = render 'favorite_services'
-      %a.btn.btn-default{href: "#"} More Info
-
-.user-info
-  .name
-    =@user.full_name
-  .role
-    =@user.role
+      = link_to "Edit Your Details", edit_user_registration_path, class: 'btn btn-default'
 

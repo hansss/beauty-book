@@ -4,4 +4,6 @@ class Category < ActiveRecord::Base
   has_many :category_salons
   has_many :salons, through: :category_salons
   
+
+  validates :title, presence: true
 end

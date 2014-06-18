@@ -1,51 +1,43 @@
 %h1 Salon Show Page
-.salon-info
-  = @managed_salon.name
-  - @managed_salon.categories.each do |category|
-    = category.title
-.salon-edit-settings
-  = link_to "Edit Your Salon Details", edit_salon_path(@managed_salon)
+.row
+  .col-md-12.salon-info
+    = @managed_salon.name
+    - @managed_salon.categories.each do |category|
+      = category.title
+    .salon-edit-settings
+      = link_to "Edit Your Salon Details", edit_salon_path(@managed_salon)
 
-.user-info
-  = @user.full_name
-  %br
-  = @user.role
-
-.salons-stylist-index
-  %h3 Stylists
-  = link_to "Add a stylist", new_salon_stylist_path(@managed_salon)
-  #stylists-list
-    - @managed_salon.stylists.each do |stylist|
-      = stylist.full_name
-      %br
-
-.salons-service-index
-  %h3 Services
-  = link_to "Add a service", new_salon_service_path(@managed_salon)
-  #services-list
+.row
+  .col-md-6#dashboard-stylist-service-index
+    %h3 Services
+    = link_to "Add a service", new_salon_service_path(@managed_salon), class: 'btn btn-warning'
+    %br
     -@managed_salon.services.each do |service|
       = service.title
-      = link_to "Remove", salon_service_path(@managed_salon, service), method: :delete
+      = link_to "Edit", edit_salon_service_path(@managed_salon, service)
+      = link_to "Remove", salon_service_path(@managed_salon, service), method: :delete, confirm: "Are you sure?"
       %br
 
-.salons-stylist-service-index
-  %h3 Stylist Services
-  -@managed_salon.stylist_services.each do |stylist_service|
-    = stylist_service.stylist.full_name
+  .col-md-6#dashboard-stylist-index
+    %h3 Stylists
+    = link_to "Add a stylist", new_salon_stylist_path(@managed_salon), class: 'btn btn-warning'
     %br
+    - @managed_salon.stylists.each do |stylist|
+      = stylist.full_name
+      = link_to "Edit", edit_salon_stylist_path(@managed_salon, stylist)
+      = link_to "Remove", salon_stylist_path(@managed_salon, stylist), method: :delete, confirm: "Are you sure?"
+      %br
 
-.appointments
-  %h3 Appointment requests
-  - @managed_salon.stylist_services.each do |stylist_service|
-    %h4= stylist_service.service.title.pluralize + " with " + stylist_service.stylist.full_name
-    %ul
-      -stylist_service.appointments.each do |appointment_request|
-        %li.row
-          .col-xs-4=appointment_request.readable_date 
-          .col-xs-4=appointment_request.client.full_name 
-          .col-xs-4=appointment_request.date 
+.row
+  .col-md-12#dashboard-appointment-request-index
+    %h3 Appointment requests
+    - @managed_salon.stylist_services.each do |stylist_service|
+      %h4= stylist_service.service.title.pluralize + " with " + stylist_service.stylist.full_name
+      %ul
+        -stylist_service.appointments.each do |appointment_request|
+          %li.row
+            .col-xs-4=appointment_request.readable_date 
+            .col-xs-4=appointment_request.client.full_name 
+            .col-xs-4=appointment_request.date 
 
 
-
-.deals
-  %h4 Add a deal

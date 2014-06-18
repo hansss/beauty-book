@@ -27,7 +27,11 @@ body > #ebtf { height: auto; min-height: 100%; }
   margin-bottom: 80px;
 }
 
-#global-footer{
+#ebtf-landing{
+  height: 99%;
+}
+
+.global-footer{
   clear: both;
   position: relative;
   height: 1em;
@@ -121,4 +125,37 @@ thead{
   margin-left: auto;
   margin-right: auto;
 }
+.brand{
+  text-align: left;
+  font-family: 'Playfair Display SC', serif;
+}
 
+.brand a{
+  font-size: 25px;
+}
+
+#landing-title{
+  font-family: 'Playfair Display SC', serif;
+  font-size: 65px;
+}
+
+#landing-description{
+  font-family: "HelveticaNeue-Light", Helvetica, sans-serif;
+}
+
+.blank-header{
+  height: 150px;
+}
+
+.landing-content{
+
+}
+
+ul{
+list-style-type: none;
+
+}
+
+.login{
+  text-align: right;
+}

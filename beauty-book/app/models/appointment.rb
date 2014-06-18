@@ -15,4 +15,12 @@ class Appointment < ActiveRecord::Base
     date.strftime("%a")
   end
 
+  def readable_time
+    start_time.strftime("%l %p")
+  end
+
+  validates :date, presence: true
+  validates :start_time, presence: true, numericality: true
+
+
 end

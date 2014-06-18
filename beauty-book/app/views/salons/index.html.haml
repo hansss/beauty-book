@@ -1,4 +1,15 @@
 %h1 Salon Index
+.form.search
+  =search_form_for @q do |f|
+    %p
+      = f.label "Salon"
+      = f.text_field :name_cont
+    %p
+      = f.label "Category"
+      = f.text_field :categories_title_cont
+    %p
+      = f.submit
+
 
 .table-responsive
   %table#salon-index.table-hover

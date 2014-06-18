@@ -1,1 +1,28 @@
-<h1>Landing Page</h1>
+!!!
+%html
+  %head
+    %title BeautyBook
+    %link{rel: "stylesheet", href: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"}/
+    %link{rel: 'stylesheet', href: 'http://fonts.googleapis.com/css?family=Playfair+Display+SC:400,400italic,700', type: 'text/css' }
+    = stylesheet_link_tag "application", :media => "all"
+  #ebtf-landing
+    %body
+      .blank-header.container
+        .row
+          .col-lg-12
+      .landing-content.container
+        .row
+          .col-lg-12
+            .landing-page-message
+              %h1#landing-title Beauty Book
+              %h3#landing-description A one-stop booking system for all your beauty needs.
+              %ul.list-inline
+                = link_to "Sign Up", new_user_registration_path, :class => "popup", :"data-width" => 600, :"data-height" => 400
+                = link_to "Sign In", new_user_session_path, :class => "popup", :"data-width" => 600, :"data-height" => 400
+  .global-footer.wrapper
+    .nav-group.footer-contact
+      .group-title
+        %ul#spa-sign-up-list
+          %li 
+          = link_to 'Sign up as a Spa', new_salon_registration_path
+             

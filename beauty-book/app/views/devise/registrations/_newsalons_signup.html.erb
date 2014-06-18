@@ -1,12 +1,68 @@
 <div>
-  <%= f.label "Your First Name"%>
+  <%= f.label :first_name, "Your First Name"%>
   <%= f.text_field :first_name %>
 </div>
 
 <div>
-  <%= f.label "Your Last Name" %>
+  <%= f.label :last_name, "Your Last Name" %>
   <%= f.text_field :last_name %>
 </div>
 
+<%= f.fields_for :managed_salon do |ms| %>
+  
+  <div>
+    <%= ms.label :name, "Salon Name" %>
+    <%= ms.text_field :name %>
+  </div>
+
+  <div>
+    <% Category.all.each do |category| %>
+      <%= check_box_tag 'user[managed_salon_attributes][category_ids][]', category.id, checked = ms.object.categories.include?(category) %>
+      <%= category.title %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= ms.label "Image Uploader" %>
+    <%= ms.fields_for :images do |image| %>
+      <%= image.file_field :image_file, class: "image-upload-form" %>
+      <%= image.label "Remove Image" %>
+      <%= image.check_box :remove_image_file %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= ms.label :opening_time %>
+    <%= ms.time_select :opening_time, {minute_step: 15, ampm: true} %>
+  </div>
+  <div>
+    <%= ms.label :closing_time %>
+    <%= ms.time_select :closing_time, {minute_step: 15, ampm: true} %>
+  </div>
+  <div>
+    <%= ms.label :phone %>
+    <%= ms.text_field :phone %>
+  </div>
+  <div>
+    <%= ms.label :website_url %>
+    <%= ms.text_field :website_url %>
+  </div>
+  <div>
+    <%= ms.label :address %>
+    <%= ms.text_field :address %>
+  </div>
+  <div>
+    <%= ms.label :postal_code %>
+    <%= ms.text_field :postal_code %>
+  </div>
+  <div>
+    <%= ms.label :city %>
+    <%= ms.text_field :city %>
+  </div>
+  <div>
+    <%= ms.label :description %>
+    <%= ms.text_area :description %>
+  </div>
+<% end %>
 
 

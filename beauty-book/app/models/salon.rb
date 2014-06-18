@@ -1,16 +1,27 @@
 class Salon < ActiveRecord::Base
   attr_accessible :address, :closing_time, :description, :name, :opening_time, :phone, :profile_image, :website_url, :postal_code, :city, :category_ids, :images, :images_attributes
 
-  has_many :stylists
-  has_many :images
+
+  has_many :favorited_salons, dependent: :destroy
+  has_many :users, through: :favorited_salons
+  has_many :stylists, dependent: :destroy
+  has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
   has_many :category_salons
   has_many :categories, through: :category_salons
   accepts_nested_attributes_for :categories
-  has_many :services
+  has_many :services, dependent: :destroy
   has_many :stylist_services, through: :services
   accepts_nested_attributes_for :services
   belongs_to :manager, class_name: 'User'
+
+  validates :name, presence: true
+  validates :opening_time, presence: true
+  validates :closing_time, presence: true
+  validates :address, presence: true
+  validates :postal_code, presence: true
+  validates :city, presence: true
+  validates :phone, presence: true
 
   def sorted_phone_number
     Phoner::Phone.parse(phone)
