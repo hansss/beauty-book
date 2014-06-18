@@ -3,6 +3,8 @@
     %li.list-group-item
       = favorite.stylist_service.service.title
       = " with " + favorite.stylist_service.stylist.full_name
-      = link_to "Book", new_appointment_path(appointment_service_id: favorite.stylist_service)
-      .favorite-button       
+      %span.badge= link_to "Book", new_appointment_path(appointment_service_id: favorite.stylist_service)
+      .favorite-button 
+
+
         

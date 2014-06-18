@@ -11,6 +11,10 @@
         %div Address: #{@salon.full_address}
         %div Web: #{link_to @salon.website_url, @salon.website_url, :target => "_blank"}
         %div Category: #{@categories.join(", ")}
+  %hr
+  .row.description
+    .col-lg-12
+      = @salon.description
   %hr/
   .row
     .col-lg-12
