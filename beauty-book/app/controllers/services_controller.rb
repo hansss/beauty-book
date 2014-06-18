@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   before_filter :load_salon
-  load_and_authorize_resource
+  # authorize_resource
   def new
     @service = @salon.services.build
     @service.stylist_services.build
@@ -8,9 +8,14 @@ class ServicesController < ApplicationController
   end
 
   def create
-    raise
+
     @service = @salon.services.create(params[:service])
-    redirect_to current_user
+    if @service.errors
+      @salons_stylists = @salon.stylists.all
+      render :new
+    else
+      redirect_to current_user
+    end
   end
 
   def show

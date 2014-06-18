@@ -10,8 +10,8 @@ class StylistService < ActiveRecord::Base
   has_many :clients, through: :appointments
 
   validates :cost, presence: true
-  validates :stylist_id, presence: true
-  validates :service_id, presence: true
+  # validates :stylist_id, presence: true
+  # validates :service_id, presence: true
 
 
 end
