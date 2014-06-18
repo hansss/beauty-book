@@ -1,7 +1,7 @@
 %ul.list-group
   - @services.each do |stylist_service|
     %li.list-group-item
-      = stylist_service.service.title
+      = stylist_service.service.title + " with "
       = stylist_service.stylist.full_name      
       %span.badge{id: "favorite_or_unfavorite_button_#{stylist_service.id}"}
         = render partial: 'favorite_or_unfavorite_button', locals: { stylist_service: stylist_service }

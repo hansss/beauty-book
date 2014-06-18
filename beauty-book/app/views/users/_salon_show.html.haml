@@ -1,9 +1,6 @@
-%h1 Salon Show Page
+%h1= @managed_salon.name
 .row
   .col-md-12.salon-info
-    = @managed_salon.name
-    - @managed_salon.categories.each do |category|
-      = category.title
     .salon-edit-settings
       = link_to "Edit Your Salon Details", edit_salon_path(@managed_salon)
 
