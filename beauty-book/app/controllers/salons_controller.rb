@@ -24,6 +24,11 @@ class SalonsController < ApplicationController
 
   def update
     @salon = Salon.find(params[:id])
+    images = params[:salon].delete(:images)
+    @salon.images.destroy_all
+    images.each do |image|
+      @salon.images << Image.create(image_file: image)
+    end
    
     respond_to do |format|
       if @salon.update_attributes(params[:salon])

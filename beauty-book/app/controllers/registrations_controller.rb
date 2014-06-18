@@ -2,7 +2,10 @@ class RegistrationsController < Devise::RegistrationsController
 
   def new
     build_resource({})
-    resource.build_managed_salon if params[:salon]
+    if params[:salon]
+      resource.build_managed_salon 
+      resource.managed_salon.images.build 
+    end
     respond_with self.resource
   end
 

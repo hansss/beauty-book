@@ -2,13 +2,23 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    raise
      user ||= User.new
     if user.role? :admin
       can :manage, :all
     elsif user.role? :salon
+      can :read, Salon
+      can :manage, Salon, id: current_user.managed_salon.id
+      can :manage, Image, salon_id: current_user.managed_salon.id
+      can :manage, Stylist, salon_id: current_user.managed_salon.id
+      can :manage, Service, salon_id: current_user.managed_salon.id
     elsif user.role? :user
-      can :read, User
+      can :read, User, id: current_user.id
+      can :read, Salon
+      can :manage, Appointment, client_id: current_user.id
+      can :manage, FavoritedStylistServices, user_id: current_user.id
     else
+      can :read, Salon
     end
     # Define abilities for the passed in user here. For example:
     #

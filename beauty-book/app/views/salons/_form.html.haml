@@ -6,11 +6,8 @@
         = category.title
     %div  
       =f.label "Image Uploader"
-      =f.fields_for :images do |image|
-        = image.file_field :image_file, class: "image-upload-form"
-        = image.label "Remove Image"
-        = image.check_box :remove_image_file
-        %br
+      = f.file_field :images, multiple: true, class: "image-upload-form"
+
     %div
       = f.label :opening_time
       = f.time_select :opening_time, {minute_step: 15, ampm: true}
