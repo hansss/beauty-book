@@ -16,9 +16,8 @@ class Ability
       can :read, User, id: user.id
       can :read, Salon
       can :manage, Appointment, client_id: user.id
-      can :manage, FavoritedStylistServices, user_id: user.id
+      can :manage, FavoritedStylistService, user_id: user.id
     else
-      can :read, Salon
     end
     # Define abilities for the passed in user here. For example:
     #
