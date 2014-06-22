@@ -22,6 +22,7 @@ class Salon < ActiveRecord::Base
   validates :postal_code, presence: true
   validates :city, presence: true
   validates :phone, presence: true
+  validates :image, presence: true
 
   def sorted_phone_number
     Phoner::Phone.parse(phone)

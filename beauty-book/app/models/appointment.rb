@@ -16,7 +16,7 @@ class Appointment < ActiveRecord::Base
   end
 
   def readable_time
-    start_time.strftime("%l %p")
+    start_time.strftime("%l:%M %p")
   end
 
   validates :date, presence: true

@@ -1,6 +1,6 @@
 class SalonsController < ApplicationController
   # before_filter :authenticate_user!
-  # load_and_authorize_resource
+  load_and_authorize_resource
   def index
     @salons = Salon.all
     @q = Salon.search(params[:q])
