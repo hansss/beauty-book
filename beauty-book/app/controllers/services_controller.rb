@@ -1,6 +1,7 @@
 class ServicesController < ApplicationController
   before_filter :load_salon
-  # authorize_resource
+  authorize_resource :salon
+  authorize_resource :service, through: :salon
   def new
     @service = @salon.services.build
     @service.stylist_services.build

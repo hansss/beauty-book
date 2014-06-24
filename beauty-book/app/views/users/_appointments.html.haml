@@ -9,6 +9,7 @@
         = appointment.readable_time
         = appointment.appointment_service.service.title + " with "
         = appointment.appointment_service.stylist.full_name
+        = link_to "Edit", edit_appointment_path(appointment)
         
         
 

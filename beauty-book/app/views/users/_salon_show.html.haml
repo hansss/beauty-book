@@ -33,8 +33,10 @@
       %ul
         -stylist_service.appointments.each do |appointment_request|
           %li.row
-            .col-xs-4=appointment_request.readable_date 
-            .col-xs-4=appointment_request.client.full_name 
-            .col-xs-4=appointment_request.readable_time 
+            .col-xs-3=appointment_request.readable_date 
+            .col-xs-3=appointment_request.client.full_name 
+            .col-xs-3=appointment_request.readable_time 
+            .col-xs-3=link_to "Edit", edit_appointment_path(appointment_request)
+
 
 

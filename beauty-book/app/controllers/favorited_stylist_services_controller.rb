@@ -1,4 +1,6 @@
 class FavoritedStylistServicesController < ApplicationController
+  load_and_authorize_resource :salon
+  load_and_authorize_resource :favorited_stylist_service, :through => :salon
   
   def index
     @favorite_services = current_user.stylist_services

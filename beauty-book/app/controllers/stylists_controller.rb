@@ -1,6 +1,9 @@
 class StylistsController < ApplicationController
   # before_filter :authenticate_user!
   before_filter :load_salon
+  authorize_resource :salon
+  authorize_resource :stylist, through: :salon
+  # load_and_authorize_resource :stylist
 
   def new
     @stylist = @salon.stylists.build

@@ -7,6 +7,7 @@ class Appointment < ActiveRecord::Base
   # opening time, clashing with other appointments, stylist is free
 
 
+
   def readable_date
     date.strftime("%B %d, %Y")
   end
