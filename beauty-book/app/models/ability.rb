@@ -18,17 +18,13 @@ class Ability
       can :manage, Stylist, salon: {id: user.managed_salon.id}
       can :manage, Service, salon: {id: user.managed_salon.id}
       can :manage, FavoritedStylistService, :salon => {:id=>user.managed_salon.id}
-      
-      #can only manage services where salon ID is salon's id
-      #can only manage stylists where salon ID is salon's id
-      #salon management not working
+
     elsif user.role? :user
       can :manage, User, id: user.id
       can :read, User, id: user.id
       can :read, Salon
       can :manage, Appointment, client_id: user.id
       can :manage, FavoritedStylistService, user_id: user.id
-      #can manage favourite services if user id is user.id
     else
       can :create, User
     end
