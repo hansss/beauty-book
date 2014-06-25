@@ -1,28 +1,41 @@
-<div>
-  <%= f.label :first_name, "Your First Name"%>
-  <%= f.text_field :first_name %>
+<div class = 'form form-group'>
+  <div class = 'manager-form'>
+    <div class='form-group'>
+      <%= f.label :first_name, "Your First Name", class: "col-sm-2 control-label"%>
+        <div class="col-sm-10">
+          <%= f.text_field :first_name, class: 'form-control' %>
+        </div>
+    </div>
+
+    <div class='form-group'>
+      <%= f.label :last_name, "Your Last Name", class: "col-sm-2 control-label"%>
+        <div class="col-sm-10">
+          <%= f.text_field :last_name, class: 'form-control' %>
+        </div>
+    </div>
 </div>
 
-<div>
-  <%= f.label :last_name, "Your Last Name" %>
-  <%= f.text_field :last_name %>
-</div>
+<p class="divider">
 
-<%= f.fields_for :managed_salon do |ms| %>
+<div class = 'manager-form'>
+  <%= f.fields_for(:managed_salon, :html => { :class => "form-horizontal" }) do |ms| %>
   
-  <div>
-    <%= ms.label :name, "Salon Name" %>
-    <%= ms.text_field :name %>
+  <div class='form-group'>
+  <%= ms.label :name, "Salon Name", class: "col-sm-2 control-label"%>
+    <div class="col-sm-10">
+      <%= ms.text_field :name, class: 'form-control' %>
+    </div>
   </div>
 
-  <div>
+<div class='form-group'>
     <% Category.all.each do |category| %>
       <%= check_box_tag 'user[managed_salon_attributes][category_ids][]', category.id, checked = ms.object.categories.include?(category) %>
       <%= category.title %>
     <% end %>
   </div>
 
-  <div>
+
+  <div class='form-group'>
     <%= ms.label "Image Uploader" %>
     <%= ms.fields_for :images do |image| %>
       <%= image.file_field :image_file, class: "image-upload-form" %>
@@ -31,38 +44,54 @@
     <% end %>
   </div>
 
-  <div>
-    <%= ms.label :opening_time %>
+  <div class='form-group'>
+    <%= ms.label :opening_time, class: 'control-label' %>
     <%= ms.time_select :opening_time, {minute_step: 15, ampm: true} %>
   </div>
-  <div>
-    <%= ms.label :closing_time %>
+  <div class='form-group'>
+    <%= ms.label :closing_time, class: 'control-label' %>
     <%= ms.time_select :closing_time, {minute_step: 15, ampm: true} %>
   </div>
-  <div>
-    <%= ms.label :phone %>
-    <%= ms.text_field :phone %>
+  <div class='form-group'>
+    <%= ms.label :phone, class: 'col-sm-2 control-label' %>
+    <div class='col-sm-10'>
+      <%= ms.text_field :phone, class: 'form-control' %>
+    </div>
   </div>
-  <div>
-    <%= ms.label :website_url %>
-    <%= ms.text_field :website_url %>
+  <div class='form-group'>
+    <%= ms.label :website_url, class: 'col-sm-2 control-label' %>
+    <div class='col-sm-10'>
+      <%= ms.text_field :website_url, class: 'form-control' %>
+    </div>
   </div>
-  <div>
-    <%= ms.label :address %>
-    <%= ms.text_field :address %>
+  <div class='form-group'>
+    <%= ms.label :address, class: 'col-sm-2 control-label' %>
+    <div class='col-sm-10'>
+      <%= ms.text_field :address, class: 'form-control' %>
+    </div>
   </div>
-  <div>
-    <%= ms.label :postal_code %>
-    <%= ms.text_field :postal_code %>
-  </div>
-  <div>
-    <%= ms.label :city %>
-    <%= ms.text_field :city %>
-  </div>
-  <div>
-    <%= ms.label :description %>
-    <%= ms.text_area :description, :rows => "5" %>
-  </div>
-<% end %>
 
+  <div class='form-group'>
+    <%= ms.label :postal_code, class: 'col-sm-2 control-label' %>
+    <div class='col-sm-10'>
+      <%= ms.text_field :postal_code, class: 'form-control' %>
+    </div>
+  </div>
+  
+  <div class='form-group'>
+    <%= ms.label :city, class: 'col-sm-2 control-label' %>
+    <div class='col-sm-10'>
+      <%= ms.text_field :city, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class='form-group'>
+    <%= ms.label :description, class: 'col-sm-2 control-label' %>
+    <div class='col-sm-10'>
+      <%= ms.text_area :description, :rows => "5", class: 'form-control' %>
+    </div>
+  </div>
+</div>
+<% end %>
+</div>
 

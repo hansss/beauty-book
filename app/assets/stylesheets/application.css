@@ -183,3 +183,14 @@ tbody{
   text-align: left;
 }
 
+.divider{
+  border-bottom: 1px solid #ccc;
+  width: 55%;
+  margin-left: 30%;
+  margin-right: auto;
+}
+
+.custom-signup-form{
+  margin-top: 20px;
+}
+

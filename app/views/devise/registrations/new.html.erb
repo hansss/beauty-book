@@ -1,26 +1,46 @@
 <h2>Sign up</h2>
 <% path = params[:salon] ? salon_registration_path : registration_path(resource_name) %>
-
-<%= form_for(resource, as: resource_name, url: path) do |f| %>
+<!-- <form class="form form-inline"> -->
+<%= form_for(resource, as: resource_name, url: path, :html => { :class => "form-horizontal" }) do |f| %>
   <%= devise_error_messages! %>
 
+<div class = "devise-form">
+  <div class="form-group">
+    <%= f.label :email, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%= f.email_field :email, autofocus: true, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation, class: "col-sm-2 control-label" %>
+    <div class="col-sm-10">
+    <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+    </div>
+  </div>
+</div>
+<p class="divider">
+
+<div class="custom-signup-form">
   <% if params[:salon] %>
     <%= render :partial => "newsalons_signup", :locals => {:f => f} %>
   <% else %>
     <%= render :partial => "users_signup", :locals => {:f => f} %>
   <% end %>
-</br>
 
-  <div><%= f.label :email %>
-  <%= f.email_field :email, autofocus: true %></div>
-
-  <div><%= f.label :password %>
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <div><%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-  <div><%= f.submit "Sign up" %></div>
+  <div>
+    <%= f.submit "Sign up" %>
+  </div>
+</div>
 <% end %>
+
+<!-- </form> -->
 
 <%= render "devise/shared/links" %>
