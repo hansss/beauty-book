@@ -10,6 +10,7 @@
         = appointment.appointment_service.service.title + " with "
         = appointment.appointment_service.stylist.full_name
         = link_to "Edit", edit_appointment_path(appointment)
+        = link_to "Delete", appointment_path(appointment), method: :delete
         
         
 

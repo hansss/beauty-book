@@ -29,6 +29,14 @@ class AppointmentsController < ApplicationController
     redirect_to current_user
   end
 
+def destroy
+  @appointment = Appointment.find(params[:id])
+  @appointment.destroy
+  respond_to do |format|
+    format.js {render :create}
+    format.html { redirect_to current_user }
+  end
+end
 
 
 
