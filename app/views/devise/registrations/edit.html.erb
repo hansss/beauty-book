@@ -1,31 +1,67 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<form class="form-horizontal" role="form">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :class => "form-horizontal"}) do |f| %>
+    <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, :class => "form-horizontal"}) do |f| %>
-  <%= devise_error_messages! %>
-  <div class = "form-group">
-    <div class = "pure-control-group"><%=f.label :first_name%><%=f.text_field :first_name, placeholder: 'First Name'%></div>
-    <div class = "pure-control-group"><%=f.label :last_name%><%=f.text_field :last_name, placeholder: 'Last Name'%></div>
-    <div class = "pure-control-group"><%=f.label :cellphone%><%=f.text_field :cellphone, placeholder: '07777777777'%></div>
-  </div>
-  <div class = "form-group">
-    <div class="pure-control-group"><%= f.label :email %>
-    <%= f.email_field :email, autofocus: true %></div>
+    <div class = "form-group">
+      <%=f.label :first_name, class: 'col-sm-2 control-label'%>
+      <div class='col-sm-10'>
+        <%=f.text_field :first_name, placeholder: 'First Name', class: 'form-control'%>
+      </div>
+    </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-    <% end %>
+    <div class = "form-group">
+      <%=f.label :last_name, class: 'col-sm-2 control-label'%>
+      <div class='col-sm-10'>
+        <%=f.text_field :last_name, placeholder: 'Last Name', class: 'form-control'%>
+      </div>
+    </div>
 
-    <div class="pure-control-group"><%= f.label :password %>
-      <%= f.password_field :password, autocomplete: "off", placeholder: "Leave blank if change unwanted" %></div>
 
-    <div class="pure-control-group"><%= f.label "Password Confirmation" %>
-      <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+      <div class = "form-group">
+        <%=f.label :cellphone, class: 'col-sm-2 control-label'%>
+        <div class='col-sm-10'>
+          <%=f.text_field :cellphone, placeholder: '07777777777', class: 'form-control'%>
+        </div>
+      </div>
 
-    <div class="pure-control-group"><%= f.label :current_password %> 
-      <%= f.password_field :current_password, autocomplete: "off" %></div>
-  </div>
-  <%= f.submit "Update", class: 'pure-button pure-button-primary' %>
-<% end %>
+      <hr>
+    
+      <div class = "form-group">
+        <%= f.label :email, class: 'col-sm-2 control-label'%>
+        <div class='col-sm-10'>
+          <%= f.email_field :email, autofocus: true, class: 'form-control'%>
+        </div>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label :password, class: 'col-sm-2 control-label' %>
+        <div class='col-sm-10'>
+          <%= f.password_field :password, autocomplete: "off", placeholder: "Please leave blank if you would not like to change your password.", class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label "Password Confirmation", class: 'col-sm-2 control-label' %>
+        <div class='col-sm-10'>
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :current_password, class: 'col-sm-2 control-label' %> 
+        <div class='col-sm-10'>
+          <%= f.password_field :current_password, autocomplete: "off", class: 'form-control' %>
+        </div>
+      </div>
+    
+    <%= f.submit "Update", class: "btn btn-primary" %>
+  <% end %>
+</form>
 
 <h3>Cancel my account</h3>
 
